@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # mention the path where snipe-it project cloned
-      FILE-PATH: /home/ubuntu/Snipe-IT
+      FILE-PATH: /home/ubuntu/Snipe-IT-GitHub-Actions
     steps:
         # https://github.com/rusrushal13/aws-ssm-send-command
       - name: AWS SSM Send-Command
