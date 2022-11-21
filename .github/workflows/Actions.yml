@@ -1,8 +1,8 @@
-name: snipeeit
+name: snipeit
 
 on:
  push:
-   branches: main
+   branches: devcontainer
    
    
    jobs:
