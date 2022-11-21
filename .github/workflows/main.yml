@@ -1,0 +1,25 @@
+name: snipeit
+
+on:
+  push:
+    branches: master
+  
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+         # Runs a set of commands using the runners shell
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: 65.2.127.72
+          username: ubuntu
+          key: ${{ secrets.PRIVATEKEY }}
+          port: 22
+          script: |
+            whoami
+            cd /var/www/snipe-it
+            pwd
+            git pull origin master
