@@ -2,6 +2,7 @@ runs-on: ubuntu-latest
 
 steps:
 
+
  - name: Checkout
    uses: actions/checkout@v2
   
@@ -35,4 +36,5 @@ steps:
         cd /home/ubuntu/Snipe-IT-GitHub-Actions
         git init
         git pull origin main
-          sudo docker compose up --build -d
+    
+        sudo docker-compose up --build -d
