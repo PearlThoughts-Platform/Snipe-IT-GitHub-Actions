@@ -21,7 +21,7 @@ filter {
     }
 owners = ["099720109477"] # Canonical
 }
-# provision to us-east-2 region
+
 provider "aws" {
   region  = "ap-south-1"
 }
@@ -92,7 +92,7 @@ resource "aws_route_table" "test-rt" {
 resource "aws_subnet" "test-subnet" {
     vpc_id = aws_vpc.test-vpc.id
     cidr_block = "10.0.1.0/24"
-    availability_zone = "us-east-2b"
+    availability_zone = "ap-south-1"
     tags = {
         Name = "subnet1"
     }
@@ -169,9 +169,22 @@ resource "aws_instance" "test-instance" {
     user_data = <<-EOF
             #!/bin/bash
             sudo apt update -y
-            sudo apt install nginx -y
-            sudo systemctl start nginx
-            sudo systemctl enable nginx
+            sudo apt-get install \
+                    ca-certificates \
+                    curl \
+                    gnupg \
+                    lsb-release;
+            sudo mkdir -p /etc/apt/keyrings;
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
+            echo \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null ;
+            sudo apt-get update;
+            sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose;
+            git clone https://github.com/AkshayV30/Snipe-IT-GitHub-Actions.git
+            cd /Snipe-IT-GitHub-Actions
+            docker compose up 
+            
     EOF
     tags = {
         Name = "test-instance"

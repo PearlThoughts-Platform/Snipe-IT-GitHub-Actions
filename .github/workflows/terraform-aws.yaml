@@ -6,9 +6,9 @@
 
 name: Continuous deployment in AWS EC2
 on:
-#   push:
-#     branches:
-#       - main
+  #   push:
+  #     branches:
+  #       - main
   workflow_dispatch:
 #   push:
 #     branches: [ "devcontainer" ]
@@ -19,27 +19,35 @@ jobs:
   provision-ec2:
     runs-on: ubuntu-22.04
     steps:
+      - name: Hello Snipe
+
       - name: Checking out
         uses: actions/checkout@v3
 
-      - name: Configuring AWS credentials
+      - name: Configuring AWS credentials for Terraform
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: "${{ secrets.TF_EC2_ACCESS_KEY_ID }}"
           aws-secret-access-key: "${{ secrets.TF_EC2_SECRET_ACCESS_KEY }}"
           aws-region: ap-south-1
 
-      - name: Setup Terraform
+      - name: Setting up Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_wrapper: false
 
-      - name: Terraform Apply
-        id: apply
+      - name: Terraform plan
+        id: plan
         env:
           TF_VAR_ec2_name: "${{ github.event.inputs.ec2-name }}"
         run: |
           terraform init
           terraform validate
           terraform plan
-        # terraform apply -auto-approve
+
+      # - name: Terraform apply
+      #   id: apply
+      #   env:
+      #     TF_VAR_ec2_name: "${{ github.event.inputs.ec2-name }}"
+      #   run: |
+      #     terraform apply -auto-approve
