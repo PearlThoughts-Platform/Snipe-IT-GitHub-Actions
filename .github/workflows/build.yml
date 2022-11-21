@@ -14,12 +14,11 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-          host: 65.2.127.72
+          host: 52.202.213.52
           username: ubuntu
           key: ${{ secrets.PRIVATEKEY }}
           port: 22
-          script: |
-            whoami
-            cd /var/www/snipe-it
-            pwd
-            git pull origin master
+          working-directory: /home/ubuntu/Snipe-IT
+          command: |
+            git pull origin main
+            docker-compose up -d
