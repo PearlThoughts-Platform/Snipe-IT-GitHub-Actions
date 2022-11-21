@@ -5,11 +5,11 @@ on:
    branches: devcontainer
    
    
-   jobs:
+   tags:
      deploy:
-runs-on: ubuntu-latest
+     run-name: ubuntu-latest
 
-steps:
+env:
   
  - name: Login to GitHub Container Registry
    uses: ./
