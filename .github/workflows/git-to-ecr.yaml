@@ -18,7 +18,7 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-22.04
-    environment: stagging
+    environment: test
     steps:
       - name: Checkout
         uses: actions/checkout@v3
