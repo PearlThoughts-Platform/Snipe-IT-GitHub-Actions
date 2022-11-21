@@ -1,4 +1,4 @@
-runs-on: ubuntu
+runs-on: ubuntu-latest
 
 steps:
 
@@ -31,9 +31,8 @@ steps:
       port: ${{ secrets.PORT }}
       script: |
         whoami
-        git clone https://github.com/shahedmadni78/github-action2.git
-        cd /home/ubuntu/github-action2
+        git clone https://github.com/ravigfx/Snipe-IT-GitHub-Actions.git
+        cd /home/ubuntu/Snipe-IT-GitHub-Actions
         git init
         git pull origin main
-        sudo docker-compose up -d
-        sudo docker-compose up --build -d
+          sudo docker compose up --build -d
