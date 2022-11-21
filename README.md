@@ -1,7 +1,7 @@
 ![Build Status](https://app.chipperci.com/projects/0e5f8979-31eb-4ee6-9abf-050b76ab0383/status/master) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/snipe-it/localized.svg)](https://crowdin.com/project/snipe-it) [![Docker Pulls](https://img.shields.io/docker/pulls/snipe/snipe-it.svg)](https://hub.docker.com/r/snipe/snipe-it/) [![Twitter Follow](https://img.shields.io/twitter/follow/snipeitapp.svg?style=social)](https://twitter.com/snipeitapp)  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/553ce52037fc43ea99149785afcfe641)](https://www.codacy.com/app/snipe/snipe-it?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=snipe/snipe-it&amp;utm_campaign=Badge_Grade)
 [![All Contributors](https://img.shields.io/badge/all_contributors-300-orange.svg?style=flat-square)](#contributors) [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/yZFtShAcKk) [![huntr](https://cdn.huntr.dev/huntr_security_badge_mono.svg)](https://huntr.dev)
 
-## Snipe-IT - Open Source Asset Management System
+## Snipe-IT - "Open Source Asset Management System":
 
 This is a FOSS project for asset management in IT Operations. Knowing who has which laptop, when it was purchased in order to depreciate it correctly, handling software licenses, etc.
 
@@ -13,7 +13,7 @@ __This is web-based software__. This means there is no executable file (aka no .
 
 -----
 
-### Installation
+### Installation:
 
 For instructions on installing and configuring Snipe-IT on your server, check out the [installation manual](https://snipe-it.readme.io/docs). (Please see the [requirements documentation](https://snipe-it.readme.io/docs/requirements) for full requirements.)
 
@@ -22,11 +22,11 @@ If you're having trouble with the installation, please check the [Common Issues]
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 -----
-### User's Manual
+### User's Manual:
 For help using Snipe-IT, check out the [user's manual](https://snipe-it.readme.io/docs/overview).
 
 -----
-### Bug Reports & Feature Requests
+### Bug Reports & Feature Requests:
 
 Feel free to check out the [GitHub Issues for this project](https://github.com/snipe/snipe-it/issues) to open a bug report or see what open issues you can help with. Please search through existing issues (open *and* closed) to see if your question has already been answered before opening a new issue.
 
@@ -34,12 +34,12 @@ Feel free to check out the [GitHub Issues for this project](https://github.com/s
 
 -----
 
-### Upgrading
+### Upgrading:
 
 Please see the [upgrading documentation](https://snipe-it.readme.io/docs/upgrading) for instructions on upgrading Snipe-IT.
 
 ------
-### Announcement List
+### Announcement List:
 
 To be notified of important news (such as new releases, security advisories, etc), [sign up for our list](http://eepurl.com/XyZKz). We'll never sell or give away your info, and we'll only email you when it's important.
 
@@ -51,7 +51,7 @@ Please see the [translations documentation](https://snipe-it.readme.io/docs/tran
 
 -----
 
-### Libraries, Modules & Related Projects
+### Libraries, Modules & Related Projects:
 
 Since the release of the JSON REST API, several third-party developers have been developing modules and libraries to work with Snipe-IT.  
 
@@ -72,7 +72,7 @@ As these were created by third-parties, Snipe-IT cannot provide support for thes
 
 -----
 
-### Contributing
+### Contributing:
 
 Please see the documentation on [contributing and developing for Snipe-IT](https://snipe-it.readme.io/docs/contributing-overview).
 
@@ -83,13 +83,13 @@ The ERD is available [online here](https://drawsql.app/templates/snipe-it).
 
 -----
 
-### Security
+### Security:
 
 To report a security vulnerability, please email security@snipeitapp.com instead of using the issue tracker. 
 
 -----
 
-### Contributors
+### Contributors:
 
 Thanks goes to all of these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)) who have helped Snipe-IT get this far:
 
