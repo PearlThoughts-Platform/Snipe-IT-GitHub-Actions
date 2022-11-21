@@ -1,24 +1,27 @@
 name: snipeit
 
-on:
+on: 
   push:
-    branches: master
+    branches: devcontainer
   
 jobs:
   deploy:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
 
     steps:
          # Runs a set of commands using the runners shell
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-          host: 52.202.213.52
+          host: 54.234.212.185
           username: ubuntu
           key: ${{ secrets.PRIVATEKEY }}
           port: 22
-          working-directory: /home/ubuntu/Snipe-IT
-          command: |
+           
+          script: |
+            pwd
+            git clone https://github.com/kesarivamshi/Snipe-IT.git
+            cd /home/ubuntu/Snipe-IT
             git pull origin main
             docker-compose up -d
