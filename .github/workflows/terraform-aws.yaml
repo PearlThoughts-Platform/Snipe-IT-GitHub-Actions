@@ -44,10 +44,6 @@ jobs:
           terraform init
           terraform validate
           terraform plan
+          terraform destroy -auto-approve
 
-      - name: Terraform apply
-        id: apply
-        env:
-          TF_VAR_ec2_name: "${{ github.event.inputs.ec2-name }}"
-        run: |
-          terraform apply -auto-approve
+# terraform apply -auto-approve
