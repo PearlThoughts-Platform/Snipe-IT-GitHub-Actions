@@ -28,31 +28,17 @@ jobs:
           aws-secret-access-key: "${{ secrets.TF_EC2_SECRET_ACCESS_KEY }}"
           aws-region: ap-south-1
 
-      # - name: Setting up Terraform
-      #   uses: hashicorp/setup-terraform@v2
-      #   with:
-      #     terraform_wrapper: false
+      - name: Setting up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
 
-      # - name: Terraform plan
-      #   id: plan
-      #   env:
-      #     TF_VAR_ec2_name: "${{ github.event.inputs.ec2-name }}"
-      #   run: |
-      #     terraform init
-      #     terraform validate
-      #     terraform plan
-      #   # terraform apply -auto-approve
-
-      - name: login to ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Build, tag, and Push image to ECR
+      - name: Terraform plan
+        id: plan
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: snipe2
-          IMAGE_TAG: ${{ github.run_number }}
+          TF_VAR_ec2_name: "${{ github.event.inputs.ec2-name }}"
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+          terraform init
+          terraform validate
+          terraform plan
+        # terraform apply -auto-approve
