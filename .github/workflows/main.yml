@@ -43,4 +43,5 @@ jobs:
           git clone https://github.com/kesarivamshi/Snipe-IT.git
           cd /home/ubuntu/Snipe-IT
           git pull origin main
-          sudo docker compose up --build -d
+          sudo docker-compose up -d
+          sudo docker-compose up --build -d
