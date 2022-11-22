@@ -16,9 +16,8 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.KEY }}
-        port: 80
+        port: ${{ secrets.PORT }}
         script: |
           whoami
           cd /var/html/www/Snipe-IT-2
           sudo git pull origin devcontainer
-          sudo docker-compose up --build -d
