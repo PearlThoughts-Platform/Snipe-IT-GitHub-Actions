@@ -13,10 +13,10 @@ jobs:
     - name: executing remote ssh commands using key
       uses: appleboy/ssh-action@devcontainer
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
+        host: 35.175.247.109
+        username: ubuntu
         key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
+        port: 22
         script: |
           whoami
           cd /var/html/www/Snipe-IT-2
