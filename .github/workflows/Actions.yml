@@ -1,4 +1,4 @@
-name: PHP APP
+name: snipeit
 
 on:
   push:
@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using key
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@devcontainer
       with:
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        username: ${{ secrets.USER }}
         key: ${{ secrets.KEY }}
         port: 22
         script: |
