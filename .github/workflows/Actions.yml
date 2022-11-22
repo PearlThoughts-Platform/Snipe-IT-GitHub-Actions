@@ -20,4 +20,4 @@ jobs:
         script: |
           whoami
           cd /var/www/Snipe-IT-2
-          sudo git pull origin devcontainer
+          sudo git pull origin master
