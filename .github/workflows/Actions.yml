@@ -2,9 +2,9 @@ name: PHP APP
 
 on:
   push:
-    branches: [ main ]
+    branches: [ devcontainer ]
   pull_request:
-    branches: [ main ]
+    branches: [ devcontainer ]
 jobs:
 
   build:
