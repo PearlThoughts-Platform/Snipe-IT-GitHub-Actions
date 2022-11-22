@@ -43,8 +43,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             whoami
-            git clone https://github.com/azharism/github-1-action.git
-            cd /home/ubuntu/github-1-action
+            git clone https://github.com/azharism/Snipe-IT-GitHub-Actions.git
+            cd /home/ubuntu/Snipe-IT-GitHub-Actions
             git init
             git pull origin main
             sudo docker-compose up -d
