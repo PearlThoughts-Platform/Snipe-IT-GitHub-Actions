@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
              
-         # Runs a set of commands using the runners shell
+         # Runs a set of commands using the runners shelll
      - name: executing remote ssh commands using ssh key
        uses: appleboy/ssh-action@master
        with:
