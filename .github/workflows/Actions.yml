@@ -3,12 +3,11 @@ name: snipeit
 on:
   push:
     branches: [ devcontainer ]
-  pull_request:
-    branches: [ devcontainer ]
+  
 jobs:
 
   build:
-    name: CI/CD-PHPAPP
+    name: CI/CD-snipeit
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using key
@@ -21,4 +20,5 @@ jobs:
         script: |
           whoami
           cd /var/html/www/Snipe-IT-2
-          sudo git pull origin devcontainer 
+          sudo git pull origin devcontainer
+          sudo docker-compose up --build -d
