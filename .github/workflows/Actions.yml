@@ -16,7 +16,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.KEY }}
-        port: 22
+        port: 80
         script: |
           whoami
           cd /var/html/www/Snipe-IT-2
