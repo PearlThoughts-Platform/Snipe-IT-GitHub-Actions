@@ -2,11 +2,7 @@ name: 'Terraform'
 on:
   push:
     branches:
-      - main
-      - githubaction
-  # pull_request:
-  #     branches:
-  #     - development
+      - devcontaniner
 
 env:
   TF_IN_AUTOMATION: true
