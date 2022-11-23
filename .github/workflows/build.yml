@@ -41,6 +41,6 @@ jobs:
         script: |
          pwd
           git clone https://github.com/kesarivamshi/Snipe-IT-GitHub-Actions.git
-          cd /home/ubuntu/Snipe-IT
-          git pull origin main
+          cd /home/ubuntu/Snipe-IT-GitHub-Actions
+          git pull origin devcontainer
           sudo docker-compose up -d
