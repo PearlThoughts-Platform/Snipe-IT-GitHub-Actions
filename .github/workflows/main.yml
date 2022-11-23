@@ -1,47 +1,39 @@
-name: snipeit
+name: Continuous deployment in AWS instance
 
-on: 
+on:
   push:
-    branches: devcontainer
-  
+    branches: ["devcontainer"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   deploy:
-
-    runs-on: ubuntu-latest 
-    
-
+    runs-on: ubuntu-latest
+    env:
+      # mention the path where snipe-it project cloned
+      FILE-PATH: /home/ubuntu/Snipe-IT
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+        # https://github.com/rusrushal13/aws-ssm-send-command
+      - name: AWS SSM Send-Command
+        uses: rusrushal13/aws-ssm-send-command@master
+        id: ssm
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          targets: ${{ secrets.TARGETS }}
+          working-directory: ${{ env.FILE-PATH }}
+          # the below commands executes in the EC2 instance where already Snipe-IT is running.
+          # 1. fetch changes from remote repository. 
+          # 2. pull the latest codes from main branch.
+          # 3. deploy the changes.
+          command: |
+            git fetch --all
+            git pull origin main
+            docker-compose up -d
+          comment: building docker containers
 
-    - name: Login to GitHub Container Registry
-      uses: ./
-      with:
-          registry: ghcr.io
-          username: ${{ secrets.GHCR_USER }}
-          password: ${{ secrets.GHCR_PASS }}
-
-    - name: Checkout
-      uses: actions/checkout@v3
-
-    - name: log in dockerhub
-      uses: ./
-      with:
-          username: ${{ secrets.DOCKERUSER }}
-          password: ${{ secrets.DOCKERHUB_PASS }}
-         # Runs a set of commands using the runners shell
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.PRIVATEKEY }}
-        port: ${{ secrets.PORT }}
-           
-        script: |
-         pwd
-          git clone https://github.com/kesarivamshi/Snipe-IT.git
-          cd /home/ubuntu/Snipe-IT
-          git pull origin main
-          sudo docker-compose up -d
-          sudo docker compose up --build -d
+      # Catch SSM outputs
+      - name: Get the outputs
+        run: echo "The Command id is ${{ steps.ssm.outputs.command-id }}"
