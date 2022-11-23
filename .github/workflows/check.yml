@@ -3,7 +3,7 @@ name: snipeit
 
 on:
   push:
-    branches: [ main ]
+    branches: [ devcontainer ]
   
 jobs:
 
@@ -21,4 +21,4 @@ jobs:
         script: |
           whoami
           cd /var/www/githubaction
-          sudo git pull origin main
+          sudo git pull origin devcontainer
