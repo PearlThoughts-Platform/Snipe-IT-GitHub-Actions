@@ -24,7 +24,7 @@ jobs:
       - name: Configure AWS credential
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-region: "US East"
+          aws-region: "US-East-1"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
