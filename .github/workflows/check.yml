@@ -20,5 +20,5 @@ jobs:
         port: 22
         script: |
           whoami
-          cd /var/www/githubaction
+          cd /var/www/Snipe-IT-GitHub-Actions
           sudo git pull origin devcontainer
