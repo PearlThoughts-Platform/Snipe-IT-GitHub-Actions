@@ -2,7 +2,7 @@ name: snipeit
 
 on:
   push:
-    branches: devcontainer
+    branches: ci/cd-githubaction-update
   
 jobs:
   deploy:
