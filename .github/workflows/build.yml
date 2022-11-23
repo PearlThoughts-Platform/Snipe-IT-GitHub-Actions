@@ -44,3 +44,4 @@ jobs:
           cd /home/ubuntu/Snipe-IT-GitHub-Actions
           git pull origin devcontainer
           sudo docker-compose up -d
+          sudo docker compose up --build -d
