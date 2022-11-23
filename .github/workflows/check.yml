@@ -1,0 +1,24 @@
+
+name: snipeit
+
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+
+  build:
+    name: CI/CD-snipeit
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using key
+      uses: appleboy/ssh-action@master
+      with:
+        host: 13.233.195.162
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: |
+          whoami
+          cd /var/www/githubaction
+          sudo git pull origin main
