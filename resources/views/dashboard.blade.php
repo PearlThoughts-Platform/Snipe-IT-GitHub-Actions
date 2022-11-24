@@ -1,7 +1,7 @@
 @extends('layouts/default')
 {{-- Page title --}}
 @section('title')
-{{ trans('general.dashboard') }}
+{{ trans('general.dashboard this is by git action') }}
 @parent
 @stop
 

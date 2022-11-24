@@ -9,7 +9,7 @@ services:
     ports:
     - "8000:80"
     volumes:
-    - ./logs:/var/www/html/storage/logs
+    - logs:/var/www/html/storage/logs
     depends_on:
     - mariadb
     - redis
@@ -45,6 +45,7 @@ services:
 
 volumes:
   db: {}
+  logs: {}
 
 networks:
   snipeit-backend: {}
