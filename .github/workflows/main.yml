@@ -1,0 +1,22 @@
+name: snipeitActions
+
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+
+  build:
+    name: CI/CD-snipeit
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using key
+      uses: appleboy/ssh-action@master
+      with:
+        host: 52.66.201.69
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: |
+          whoami
+          cd /var/www/snipe-it
