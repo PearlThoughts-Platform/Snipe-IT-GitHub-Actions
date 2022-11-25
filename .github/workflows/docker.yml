@@ -19,5 +19,5 @@ jobs:
         port: 22
         script: |
           whoami
-          cd: https://github.com/ravigfx/Snipe-IT-2.git
+          cd: https://github.com/ravigfx/Snipe-IT-2
           sudo git pull origin devcontainer
