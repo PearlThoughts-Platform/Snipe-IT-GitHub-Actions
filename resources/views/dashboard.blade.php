@@ -1,7 +1,7 @@
 @extends('layouts/default')
 {{-- Page title --}}
 @section('title')
-{{ trans('DashBoard') }}
+{{ trans('weclome to Snipe-IT') }}
 @parent
 @stop
 
