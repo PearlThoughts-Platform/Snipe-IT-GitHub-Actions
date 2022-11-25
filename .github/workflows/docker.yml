@@ -13,7 +13,7 @@ jobs:
     - name: executing remote ssh commands using key
       uses: appleboy/ssh-action@master
       with:
-        host: 3.85.91.154
+        host: 34.227.194.234
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22
