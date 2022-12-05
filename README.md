@@ -81,6 +81,9 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 The ERD is available [online here](https://drawsql.app/templates/snipe-it).
 
+
+[![Contribute](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/snipe/snipe-it)
+
 -----
 
 ### Security

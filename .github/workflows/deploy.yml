@@ -1,0 +1,51 @@
+name: snipeit
+
+on:
+  push:
+    branches: devcontainer
+  
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+   
+    
+    
+        
+     - name: Checkout
+       uses: actions/checkout@v2
+      
+     - name: Login to GitHub Container Registry
+       uses: ./
+       with:
+          registry: ghcr.io
+          username: ${{ secrets.GHCR_USER }}
+          password: ${{ secrets.GHCR_PASS }}
+    
+     - name: Checkout
+       uses: actions/checkout@v3
+  
+     - name: log in dockerhub
+       uses: ./
+       with:
+          username: ${{ secrets.DOCKERHUB }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+             
+         # Runs a set of commands using the runners shell
+     - name: executing remote ssh commands using ssh key
+       uses: appleboy/ssh-action@master
+       with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            whoami
+            git clone https://github.com/rohitsasi720/Snipe-IT-GitHub-Actions.git
+            cd /home/ubuntu/Snipe-IT-GitHub-Actions
+            git init
+            git pull origin devcontainer
+            sudo docker-compose up -d
+            sudo docker-compose up --build -d
